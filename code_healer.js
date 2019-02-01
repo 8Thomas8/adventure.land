@@ -1,4 +1,3 @@
-
 var attack_mode=true
 var heal_mode=true
 var my_characters=["Lokda","Tankda","Healda"]
