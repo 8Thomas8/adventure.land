@@ -1,6 +1,10 @@
+//anti reduction de ressource si onglet non focus
+//performance_trick();
+
 var attack_mode=true
 var heal_mode=true
 var heal_targets=["Lokda","Tankda","Healda"]
+var set_tank="Tankda"
 
 //Autoaccept les invitations
 load_code(99);
@@ -15,9 +19,15 @@ setInterval(function(){
 		if(character.rip || is_moving(character)) return;
 
 	var target=get_targeted_monster();
-	if(!target)
-	{
-		target=get_nearest_monster({min_xp:100,max_att:120});
+  if (!target) {
+	if (get_target_of(get_player(set_tank))) {
+		target = get_target_of(get_player(set_tank));
+	}  //else {
+    	//target = get_nearest_monster({
+    	//  min_xp: 100,
+     	// max_att: 120
+  	 // });
+	//}
 		if(target) change_target(target);
 		else
 		{
