@@ -1,12 +1,19 @@
+// Hey there!
+// This is CODE, lets you control your character with code.
+// If you don't know how to code, don't worry, It's easy.
+// Just set attack_mode to true and ENGAGE!
+
 var attack_mode=true
 var my_characters=["Lokda","Tankda","Healda"]
 
+//Auto accept les invitations de groupes des joueurs du tableau my_characters
 setInterval(function(){
 	my_characters.forEach(function(selected_character) {
 	accept_party_invite(selected_character);
 	});
-},15000); // Loops every 1/4 seconds
+},15000); // Loops every 15 seconds
 
+//Auto attack les monstres à portée
 setInterval(function(){
 
 	use_hp_or_mp();
@@ -41,3 +48,4 @@ setInterval(function(){
 	}
 
 },1000/4); // Loops every 1/4 seconds.
+
