@@ -1,7 +1,8 @@
 //anti reduction de ressource si onglet non focus
-//performance_trick();
+performance_trick();
 
 var attack_mode = true
+var set_tank = "Tankda"
 
 //Autoaccept les invitations
 load_code(99);
@@ -16,10 +17,15 @@ setInterval(function () {
 
   var target = get_targeted_monster();
   if (!target) {
-    target = get_nearest_monster({
-      min_xp: 100,
-      max_att: 120
-    });
+	if (get_target_of(get_player(set_tank))) {
+		target = get_target_of(get_player(set_tank));
+	}  //else {
+    	//target = get_nearest_monster({
+    	//  min_xp: 100,
+     	// max_att: 120
+  	 // });
+	//}
+	  
     if (target) change_target(target);
     else {
       set_message("No Monsters");
