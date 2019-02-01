@@ -1,20 +1,16 @@
 var attack_mode=true
 var heal_mode=true
-var my_characters=["Lokda","Tankda","Healda"]
 var heal_targets=["Lokda","Tankda","Healda"]
 
-//Auto accept les invitations de groupes des joueurs du tableau my_characters 
-setInterval(function(){
-	my_characters.forEach(function(selected_character) {
-	accept_party_invite(selected_character);
-	});
-},15000); // Loops every 15 seconds
+//Autoaccept les invitations
+load_code(99);
 
+//Autoattack les monstres et auto soigne les heal_targets
 setInterval(function(){
 
 	use_hp_or_mp();
 	loot();
-	//Auto attack les monstres à portée
+	
 	if (attack_mode == true) {
 		if(character.rip || is_moving(character)) return;
 
@@ -44,7 +40,7 @@ setInterval(function(){
 		attack(target);
 	}
 	}
-	//Auto heal les joueurs de heal_targets à portée
+	
 	if (heal_mode == true) {
 		if(character.rip || is_moving(character)) return;
 	heal_targets.forEach(function(selected_target){
