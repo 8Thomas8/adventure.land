@@ -17,15 +17,15 @@ setInterval(function () {
 
   var target = get_targeted_monster();
   if (!target) {
-	if (get_target_of(get_player(set_tank))) {
-		target = get_target_of(get_player(set_tank));
-	}  //else {
-    	//target = get_nearest_monster({
-    	//  min_xp: 100,
-     	// max_att: 120
-  	 // });
-	//}
-	  
+    if (get_target_of(get_player(set_tank))) {
+      target = get_target_of(get_player(set_tank));
+    } //else {
+    //target = get_nearest_monster({
+    //  min_xp: 100,
+    // max_att: 120
+    // });
+    //}
+
     if (target) change_target(target);
     else {
       set_message("No Monsters");
@@ -41,8 +41,8 @@ setInterval(function () {
     // Walk half the distance
   } else if (can_attack(target)) {
     set_message("Attacking");
-	  
-	 //Si supershot est dispo, attaque avec, sinon, faire l'auto attack
+
+    //Si supershot est dispo, attaque avec, sinon, faire l'auto attack
     if (can_use("supershot") && (character.mp >= 400)) {
       use("supershot", target);
     } else {
