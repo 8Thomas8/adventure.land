@@ -6,8 +6,8 @@ var heal_mode = true
 var heal_targets = ["Lokda", "Tankda", "Healda"]
 var set_tank = "Tankda"
 
-//Autoaccept les invitations
-load_code(99);
+//Gestion des groupes
+load_code(96);
 
 //Autoattack les monstres et auto soigne les heal_targets
 setInterval(function () {

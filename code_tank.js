@@ -3,8 +3,8 @@
 
 var attack_mode = true
 
-//Autoaccept les invitations
-load_code(99);
+//Gestion des groupes
+load_code(96);
 
 //Auto attack les monstres à portée
 setInterval(function () {
