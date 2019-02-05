@@ -5,6 +5,7 @@ var attack_mode = true
 var heal_mode = true
 var heal_targets = ["Lokda", "Tankda", "Healda"]
 var set_tank = "Tankda"
+var target_name = "crab"
 
 //Gestion des groupes
 load_code(96);
@@ -20,14 +21,16 @@ setInterval(function () {
 
     var target = get_targeted_monster();
     if (!target) {
-      if (get_target_of(get_player(set_tank))) {
-        target = get_target_of(get_player(set_tank));
-      } //else {
-      //target = get_nearest_monster({
-      //  min_xp: 100,
-      // max_att: 120
-      // });
-      //}
+      //if (get_target_of(get_player(set_tank))) {
+      // target = get_target_of(get_player(set_tank));
+      //} else 
+      {
+        target = get_nearest_monster({
+          min_xp: 100,
+          max_att: 120,
+          type: target_name
+        });
+      }
       if (target) change_target(target);
       else {
         set_message("No Monsters");

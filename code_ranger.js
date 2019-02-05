@@ -3,6 +3,7 @@ performance_trick();
 
 var attack_mode = true;
 var set_tank = "Tankda";
+var target_name = "crab";
 
 //Connecter les autres perso
 load_code(97);
@@ -21,13 +22,15 @@ setInterval(function () {
 
   if (!target) {
     //if (get_target_of(get_player(set_tank))) {
-    //	target = get_target_of(get_player(set_tank));
-    //}  else {
-    target = get_nearest_monster({
-      min_xp: 100,
-      max_att: 120
-    });
-    //}
+    // target = get_target_of(get_player(set_tank));
+    //} else 
+    {
+      target = get_nearest_monster({
+        min_xp: 100,
+        max_att: 120,
+        type: target_name
+      });
+    }
 
     if (target) change_target(target);
     else {
@@ -36,13 +39,13 @@ setInterval(function () {
     }
   }
 
-  // if (!in_attack_range(target)) {
-  // Walk to max distance / 2
-  //  move(
-  //    character.x + ((target.x - character.x / 2)),
-  //    character.y + ((target.y - character.y / 2))
-  //  );
-  // } else 
+  if (!in_attack_range(target)) {
+    // Walk to max distance / 2
+    move(
+      character.x + (target.x - character.x) / 2,
+      character.y + (target.y - character.y) / 2
+    );
+  } else
 
   if (can_attack(target)) {
     set_message("Attacking");

@@ -1,7 +1,8 @@
 //anti reduction de ressource si onglet non focus
 //performance_trick();
 
-var attack_mode = true
+var attack_mode = true;
+var target_name = "crab";
 
 //Gestion des groupes
 load_code(96);
@@ -18,7 +19,8 @@ setInterval(function () {
   if (!target) {
     target = get_nearest_monster({
       min_xp: 100,
-      max_att: 120
+      max_att: 120,
+      type: target_name
     });
     if (target) change_target(target);
     else {
