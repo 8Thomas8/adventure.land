@@ -1,5 +1,5 @@
 lead_character = "Lokda";
-list_characters = ["Tankda", "Healda", "Shopda"];
+list_characters = ["Tankda", "Healda"];
 
 //Fonction de gestion des invitations
 function on_party_invite(name) {
@@ -8,7 +8,7 @@ function on_party_invite(name) {
 
 //Send invite
 setTimeout(function () {
-  if ((character.name === lead_character) || (selected_character !== "Shopda")) {
+  if (character.name === lead_character) {
     list_characters.forEach(function (selected_character) {
       send_party_invite(selected_character);
     });
@@ -17,7 +17,7 @@ setTimeout(function () {
 
 setTimeout(function () {
   //Accept invite
-  if ((character.name !== lead_character) || (character.name !== "Shopda")) {
+  if (character.name !== lead_character) {
     on_party_invite(lead_character);
   }
 }, 20000); //Après 20 secondes.
