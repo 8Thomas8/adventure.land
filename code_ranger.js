@@ -51,7 +51,7 @@ setInterval(function () {
     set_message("Attacking");
 
     //Si supershot est dispo, attaque avec, sinon, faire l'auto attack
-    if (can_use("supershot") && (character.mp >= 400)) {
+    if (can_use("supershot") && (character.mp >= 400) && (target.hp >= 300)) {
       use("supershot", target);
     } else {
       attack(target);
