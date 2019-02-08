@@ -9,6 +9,8 @@ var target_name = "crab";
 load_code(97);
 //Gérer les groupes
 load_code(96);
+//Gestion rip/respawn
+load_code(95);
 
 //Auto attack les monstres
 setInterval(function () {
